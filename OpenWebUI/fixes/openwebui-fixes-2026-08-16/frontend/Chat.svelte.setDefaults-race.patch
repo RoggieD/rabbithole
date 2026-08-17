@@ -1,0 +1,29 @@
+--- frontend/Chat.svelte.original	2026-08-16 21:40:03.155740609 -0400
++++ frontend/Chat.svelte.patched	2026-08-16 21:58:40.817854597 -0400
+@@ -738,8 +738,13 @@
+ 	}
+ 
+ 	let settingDefaults = false;
++	let setDefaultsPending = false;
++
+ 	const setDefaults = async () => {
+-		if (settingDefaults) return;
++		if (settingDefaults) {
++			setDefaultsPending = true;
++			return;
++		}
+ 		settingDefaults = true;
+ 
+ 		try {
+@@ -849,6 +854,11 @@
+ 			}
+ 		} finally {
+ 			settingDefaults = false;
++
++			if (setDefaultsPending) {
++				setDefaultsPending = false;
++				await setDefaults();
++			}
+ 		}
+ 	};
+ 

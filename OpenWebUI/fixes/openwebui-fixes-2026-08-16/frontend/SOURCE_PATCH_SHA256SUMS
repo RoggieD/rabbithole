@@ -1,0 +1,3 @@
+2d4e5ffda9b59675fbaf345c2f4c82129b88dab5d29ca8a2287ae86768ebad06  frontend/Chat.svelte.original
+2422aa5159429d2247aed7df9f56709b418aa6ba1b306e68ac7602f879e341ee  frontend/Chat.svelte.patched
+e1dcbcfe73d0646e22533fe9d5f76ae6c7545cf421d62fb08b14dc3b5e87dae5  frontend/Chat.svelte.setDefaults-race.patch

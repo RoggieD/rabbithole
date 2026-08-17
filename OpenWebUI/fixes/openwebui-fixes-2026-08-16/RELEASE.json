@@ -1,0 +1,42 @@
+{
+  "project": "OpenWebUI Open WebUI Fixes",
+  "release": "2026-08-16",
+  "application": {
+    "name": "Open WebUI",
+    "version": "v0.11.0",
+    "container_image": "ghcr.io/open-webui/open-webui:v0.11.0"
+  },
+  "environment": {
+    "host": "validation-host",
+    "validation_date": "2026-08-16"
+  },
+  "fixes": [
+    {
+      "id": "setDefaults-race",
+      "component": "frontend",
+      "source": "Chat.svelte",
+      "description": "Prevents concurrent setDefaults calls from dropping model default features.",
+      "validation": [
+        "New chat restores configured Web Search defaults",
+        "Manual feature disable remains respected"
+      ]
+    },
+    {
+      "id": "datetime-preservation",
+      "component": "backend",
+      "source": "retrieval/web/utils.py",
+      "description": "Preserves HTML datetime attributes during web extraction.",
+      "validation": [
+        "GitHub release timestamps remain available to extraction pipeline"
+      ]
+    }
+  ],
+  "artifacts": {
+    "source_patch": "frontend/Chat.svelte.setDefaults-race.patch",
+    "deployment_frontend": "frontend/BLLL3FN7.js.patched",
+    "deployment_backend": "backend/utils.py.patched"
+  },
+  "integrity": {
+    "manifest": "SHA256SUMS"
+  }
+}
